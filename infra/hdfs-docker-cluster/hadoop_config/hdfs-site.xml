@@ -69,4 +69,12 @@
         <value>hadoop</value>
         <description>The name of the group of Hadoop super-users.</description>
     </property>
+    <property>
+        <name>dfs.namenode.name.dir</name>
+        <value>/opt/hadoop/data/nameNode</value>
+    </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>/opt/hadoop/data/dataNode</value>
+    </property>
 </configuration>

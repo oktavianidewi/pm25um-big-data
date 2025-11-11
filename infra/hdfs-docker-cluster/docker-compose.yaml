@@ -12,6 +12,7 @@ services:
       - ./hadoop_namenode:/opt/hadoop/data/nameNode
       - ./hadoop_config:/opt/hadoop/etc/hadoop
       - ./start-hdfs.sh:/start-hdfs.sh
+      - ../../sandbox/linkedin-data:/sandbox/linkedin-data
     ports:
       - "9870:9870"
       - "9820:9820"
@@ -30,6 +31,7 @@ services:
       - ./hadoop_datanode1:/opt/hadoop/data/dataNode
       - ./hadoop_config:/opt/hadoop/etc/hadoop
       - ./init-datanode.sh:/init-datanode.sh
+      - ../../sandbox/linkedin-data:/sandbox/linkedin-data
     ports:
       - "9864:9864"  # Web UI for DataNode
     depends_on:
