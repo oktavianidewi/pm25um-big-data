@@ -1,7 +1,7 @@
 <configuration>
     <property>
         <name>hadoop.tmp.dir</name>
-        <value>/data/hdfs/tmp</value>
+        <value>/opt/hadoop/data/tmp</value>
         <description>Where Hadoop will place all of its working files</description>
     </property>
     <property>

@@ -1,11 +1,11 @@
 <configuration>
     <property>
         <name>dfs.replication</name>
-        <value>2</value>
+        <value>1</value>
         <description>The default replication factor of files on HDFS</description>
     </property>
     <property> 
-        <name>dfs.block.size</name>
+        <name>dfs.blocksize</name>
         <value>16777216</value>
         <description>The default block size in bytes of data saved to HDFS</description>
     </property>
@@ -76,5 +76,44 @@
     <property>
         <name>dfs.datanode.data.dir</name>
         <value>/opt/hadoop/data/dataNode</value>
+    </property>
+    <property>
+        <name>dfs.namenode.safemode.min.datanodes</name>
+        <value>0</value>
+    </property>
+    <property>
+        <name>dfs.namenode.safemode.threshold-pct</name>
+        <value>0.0</value>
+        <description>
+            Specifies the percentage of blocks that should satisfy the minimal 
+            replication requirement defined by dfs.namenode.replication.min.
+            Values less than 1.0 mean the namenode exits safemode even if some 
+            blocks are under-replicated. For development/testing, 0.0 allows 
+            immediate exit from safemode.
+        </description>
+    </property>
+    <property>
+        <name>dfs.blockreport.initialDelay</name>
+        <value>0</value>
+        <description>Delay in seconds before first block report after datanode startup. Set to 0 for immediate reporting.</description>
+    </property>
+    <property>
+        <name>dfs.heartbeat.interval</name>
+        <value>3</value>
+        <description>Heartbeat interval in seconds between datanode and namenode</description>
+    </property>
+    <property>
+        <name>dfs.namenode.heartbeat.recheck-interval</name>
+        <value>3000</value>
+        <description>Time in milliseconds to recheck datanode heartbeat status</description>
+    </property>
+    <property>
+        <name>dfs.blockreport.intervalMsec</name>
+        <value>21600000</value>
+        <description>Interval in milliseconds for datanode to send periodic block reports</description>
+    </property>
+    <property>
+        <name>dfs.webhdfs.enabled</name>
+        <value>true</value>
     </property>
 </configuration>

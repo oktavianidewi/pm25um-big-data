@@ -1,3 +1,7 @@
-sandbox/
+sandbox/linkedin-data/
 .ipynb_checkpoints
-data/linkedin-job/*
+hadoop_datanode1/
+hadoop_datanode2/
+hadoop_namenode/
+hadoop_tmp/
+venv/

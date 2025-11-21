@@ -10,9 +10,11 @@ services:
       - HADOOP_HOME=/opt/hadoop
     volumes:
       - ./hadoop_namenode:/opt/hadoop/data/nameNode
+      - ./hadoop_tmp:/opt/hadoop/data/tmp
       - ./hadoop_config:/opt/hadoop/etc/hadoop
       - ./start-hdfs.sh:/start-hdfs.sh
       - ../../sandbox/linkedin-data:/sandbox/linkedin-data
+      - ../../app:/opt/hadoop/app
     ports:
       - "9870:9870"
       - "9820:9820"
@@ -39,26 +41,6 @@ services:
     command: [ "/bin/bash", "/init-datanode.sh" ]
     networks:
       - hdfs_network_bridge
-
-
-  # datanode2:
-  #   # Similar configuration to datanode1, with different container_name and IP
-  #   image: apache/hadoop:3.3.5
-  #   container_name: datanode2
-  #   hostname: datanode2
-  #   user: root
-  #   environment:
-  #     - HADOOP_HOME=/opt/hadoop
-  #   volumes:
-  #     - ./hadoop_datanode2:/opt/hadoop/data/dataNode
-  #     - ./hadoop_config:/opt/hadoop/etc/hadoop
-  #     - ./init-datanode.sh:/init-datanode.sh
-  #   depends_on:
-  #     - namenode
-  #   command: [ "/bin/bash", "/init-datanode.sh" ]
-  #   networks:
-  #     hdfs_network_bridge:
-  #       ipv4_address: 172.20.0.4
 
 networks:
   hdfs_network_bridge:
